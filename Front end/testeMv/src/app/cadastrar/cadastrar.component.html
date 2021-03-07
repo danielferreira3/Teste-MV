@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" id="img-bg">
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+
+                    <h1 class="text-center">Cadastro</h1>
+
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input class="form-control" type="text" name="nome" id="nome"
+                        placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">endereço</label>
+                        <input class="form-control" type="text" name="endereco" id="endereco"
+                        placeholder="Seu endereco">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Celular</label>
+                        <input class="form-control" type="text" name="celular" id="celular"
+                        placeholder="Seu celular">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Residencial</label>
+                        <input class="form-control" type="text" name="residencial" id="residencial"
+                        placeholder="Telefone Residencial">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Função</label>
+                        <input class="form-control" type="text" name="funcao" id="funcao"
+                        placeholder="Sua função">
+                    </div>
+                    
+                    <div class="dropdown">
+                        <label class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Selecione os Estabelecimento
+                        </label>
+                        <div class="dropdown-menu" style="padding: 10px" id="myDiv" aria-labelledby="dropdownMenuButton">
+                            <li><p><input type="checkbox" value="id1" > OA Number</p></li>
+                            <li><p><input type="checkbox" value="id2" >Customer</p></li>
+                            <li><p><input type="checkbox" value="id3" > OA Date</p></li>
+                            <li><p><input type="checkbox" value="id4" >Product Code</p></li>
+                            <li><p><input type="checkbox" value="id5" >Name</p></li>
+                            <li><p><input type="checkbox" value="id6" >WI Number</p></li>
+                            <li><p><input type="checkbox" value="id7" >WI QTY</p></li>
+                            <li><p><input type="checkbox" value="id8" >Production QTY</p></li>
+                            <li><p><input type="checkbox" value="id9" >PD Sr.No (from-to)</p></li>
+                            <li><p><input type="checkbox" value="id10" > Production Date</p></li>
+                            <button class="btn btn-success" onClick="showTable();">Cadastrar Estabelecimentos</button>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-center">
+                          <button type="submit" class="btn btn-danger mr-4">Cancelar</button>
+                          <button type="submit" class="btn btn-success">Cadastrar</button>
+                      </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+#img-bg{
+    background-image: url('https://lh3.googleusercontent.com/proxy/r5cjwpDqqvvHnzDjJkk7d8NaZN9CFnf0YzDu3fKxeaCtZD5IZxfHMPHx-upvJtuO0ZDM_CQDB39cmi-gAQbbqsJ7grR1V5mmKjDdpxQtGuP7xg5hDhN_ZZQRiAJqTgBIRxoIwWsvQjMUuQQ');
+
+    min-height: 695px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dropdown-menu input {
+    margin-right: 10px;
+ } 
