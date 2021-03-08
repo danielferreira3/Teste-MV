@@ -27,7 +27,7 @@ public class ControllerProfissional {
 	@Autowired
 	private RepositoryProfissional repository;
 	
-	@PostMapping
+	@PostMapping ("/cadastrar")
 	public Profissional criar(@RequestBody Profissional objetinho) {
 		repository.save(objetinho);
 		return objetinho;
@@ -46,21 +46,15 @@ public class ControllerProfissional {
 	}
 	
 	
-	@PutMapping  ("/put/{id}")
-	public Profissional atualizar (@PathVariable Long id, @RequestBody Profissional objetinho) {
-		objetinho.setId_profissional(id);
-		repository.save(objetinho);
-		return objetinho;
+	@PutMapping
+	public ResponseEntity<Profissional> put(@RequestBody Profissional profissional){
+		return ResponseEntity.ok(repository.save(profissional));
 	}
 	
-	@DeleteMapping ("/delete/{id}")
-	public String remover (@PathVariable Long id) {
-		try {
-			repository.deleteById(id);
-		return "Deletado com sucesso !";
-		} catch (Exception e) {
-			return "Erro: " + e.getLocalizedMessage();			
-		}
+	
+	@DeleteMapping ("/{id}")
+	public void delete (@PathVariable Long id) {
+		repository.deleteById(id);
 	}
 	
 }

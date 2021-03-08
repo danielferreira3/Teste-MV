@@ -1,0 +1,106 @@
+<div class="container-fluid">
+
+    <div class="row bg-secondary">
+        <div class="col-md-6">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 text-white">
+                    <h1>Seja Bem Vindo</h1>
+                    <h5>Cadastre aqui os Profissionais</h5>
+
+                </div>
+            </div>
+
+
+            <div class="row d-flex justify-content-center mt-3 mb-5">
+                <div class="col-md-6">
+                    <button class="btn btn-light mr-2" routerLink="/cadastrar">Novo Profissional</button>
+                    <button  class="btn btn-light"routerLink="/cadastrar-esta" >
+                        novo Estabelecimento
+                      </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <nav>
+      <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+  
+        
+        <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasProfissionais-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todos os Profissionais</a>
+  
+        
+  
+      </div>
+    </nav> 
+    <table class="table ">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Celular</th>
+          <th scope="col">Residencial</th>
+          <th scope="col">Função</th>
+          <th scope="col">Estabelecimentos</th>
+          
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let proff of listaProfissional" >
+          <th scope="col">{{proff.id_profissional}}</th>
+          <th scope="col">{{proff.nome}}</th>
+          <th scope="col">{{proff.endereco}}</th>
+          <th scope="col">{{proff.celular}}</th>
+          <th scope="col">{{proff.residencial}}</th>
+          <th scope="col">{{proff.funcao}}</th>
+          <th scope="col">{{proff.estabelecimento}}</th>
+          <button type="button" class="btn btn-success"[routerLink]="['/prof-edit',proff.id_profissional]" >Editar</button>
+          <button type="button" class="btn btn-danger"[routerLink]="['/prof-del',proff.id_profissional]" >Apagar</button>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <nav>
+      <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+  
+        <a class="nav-item nav-link active text-secondary font-weight-bold mr-5" id="nav-todasProfissionais-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todos os Estabelecimentos</a>
+        
+  
+        
+  
+      </div>
+    </nav>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Estabelecimentos</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let esta of listaEstabelecimento">
+          <th scope="row">{{esta.id_estabelecimento}}</th>
+          <td>{{esta.nome}}</td>
+          <button type="button" class="btn btn-success" [routerLink]="['/esta-edit',esta.id_estabelecimento]">Editar</button>
+<button type="button" class="btn btn-danger" [routerLink]="['/esta-del',esta.id_estabelecimento]">Apagar</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+</div>
+
+  
+  
+  

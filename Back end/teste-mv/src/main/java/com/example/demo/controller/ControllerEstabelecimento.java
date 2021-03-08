@@ -25,7 +25,7 @@ public class ControllerEstabelecimento {
 	@Autowired
 	private RepositoryEstabelecimento repository;
 	
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public Estabelecimento criar(@RequestBody Estabelecimento objetinho) {
 		repository.save(objetinho);
 		return objetinho;
@@ -44,21 +44,15 @@ public class ControllerEstabelecimento {
 	}
 	
 	
-	@PutMapping  ("/put/{id}")
-	public Estabelecimento atualizar (@PathVariable Long id, @RequestBody Estabelecimento objetinho) {
-		objetinho.setId_estabelecimento(id);
-		repository.save(objetinho);
-		return objetinho;
+	@PutMapping
+	public ResponseEntity<Estabelecimento> put(@RequestBody Estabelecimento estabelecimento){
+		return ResponseEntity.ok(repository.save(estabelecimento));
 	}
 	
-	@DeleteMapping ("/delete/{id}")
-	public String remover (@PathVariable Long id) {
-		try {
-			repository.deleteById(id);
-		return "Deletado com sucesso !";
-		} catch (Exception e) {
-			return "Erro: " + e.getLocalizedMessage();			
-		}
+	
+	@DeleteMapping ("/{id}")
+	public void delete (@PathVariable Long id) {
+		repository.deleteById(id);
 	}
 	
 }
