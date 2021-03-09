@@ -52,14 +52,14 @@
         </tr>
       </thead>
       <tbody >
-        <tr *ngFor="let proff of listaProfissional" >
+        <tr *ngFor="let proff of listaProfissional; let i=index" >
           <th scope="col">{{proff.id_profissional}}</th>
           <th scope="col">{{proff.nome}}</th>
           <th scope="col">{{proff.endereco}}</th>
           <th scope="col">{{proff.celular}}</th>
           <th scope="col">{{proff.residencial}}</th>
           <th scope="col">{{proff.funcao}}</th>
-          <th scope="col">{{proff.estabelecimento}}</th>
+          <th scope="col">{{proff.estabelecimento[0].nome}}</th>
           <button type="button" class="btn btn-success"[routerLink]="['/prof-edit',proff.id_profissional]" >Editar</button>
           <button type="button" class="btn btn-danger"[routerLink]="['/prof-del',proff.id_profissional]" >Apagar</button>
         </tr>

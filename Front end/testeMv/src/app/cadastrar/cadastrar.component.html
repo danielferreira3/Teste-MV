@@ -41,9 +41,9 @@
                           Selecione os Estabelecimento
                         </label>
                         <div class="dropdown-menu" style="padding: 10px" id="myDiv" aria-labelledby="dropdownMenuButton">
-                            <li *ngFor="let esta of listaEstabelecimento"><p><input (change)='pEstabelecimento($event)' class="check" type="checkbox" value="esta.id_estabelecimento" name="{{esta.nome}}" >{{esta.nome}}</p></li>
+                            <li *ngFor="let esta of listaEstabelecimento"><p><input (change)='pEstabelecimento($event)' class="check" type="checkbox" value="esta.id_estabelecimento" name="{{esta.id_estabelecimento}}" >{{esta.nome}}</p></li>
 
-                            <button class="btn btn-success" onClick="showTable();">Cadastrar Estabelecimentos</button>
+                            <button class="btn btn-success" routerLink='/cadastrar-esta'>Cadastrar Estabelecimentos</button>
                         </div>
                       </div>
                       <div class="d-flex justify-content-center">

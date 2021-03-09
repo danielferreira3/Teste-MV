@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Estabelecimento } from '../model/Estabelecimento';
@@ -16,6 +17,7 @@ export class CadastrarComponent implements OnInit {
   profissional: Profissional = new Profissional
   estabelecimentos: Estabelecimento[] = []
   listaEstabelecimento: Estabelecimento[]
+  arr: number []
 
   constructor(
     private profissionalService: ProfissionalService,
@@ -26,7 +28,7 @@ export class CadastrarComponent implements OnInit {
   ngOnInit(){
     window.scroll(0,0);
     this.findAllEstabelecimento();
-    
+    this.profissional.estabelecimento = []
   }
 
 pEstabelecimento(event: any){
@@ -41,14 +43,44 @@ findAllEstabelecimento(){
   })
 }
 
-cadastrar(){
-  this.profissional.estabelecimento = this.estabelecimentos
+ cadastrar(){
+   this.cbx3()
+  for(let i =0; i<this.arr.length; i++){
+    let estabe: Estabelecimento = new Estabelecimento
+    estabe.id_estabelecimento = this.arr[i];
+    this.profissional.estabelecimento.push(estabe)
+  }
+  console.log(this.arr)
+  console.log(this.profissional.estabelecimento)
   this.profissionalService.cadastrar(this.profissional).subscribe((resp: Profissional)=>{
     this.profissional = resp
     alert('Profissional cadastrado com sucesso!')
     this.router.navigate(['/inicio'])
   })
 }
+
+
+ cbx3(){
+   this.arr = []/* Cria array com todos os names dos check selecionados */;
+   var inputElements = <HTMLCollectionOf<any>> <unknown>document.getElementsByClassName('check') /* Busca todos os elementos com o class check *//* Busca todos os elementos com o class check */;
+  for(var i=0; inputElements[i]; ++i){
+      if(inputElements[i].checked) /* Verifique se o elemento em questão está com o atributo checked marcado */
+      this.arr.push(inputElements[i].name) /* Inclui name do elemento em um array*/;
+  }
+   //alert(this.arr)
+
+ }
+
+//  cbx4(){
+//   var arr = [];
+//   var inputElements = (<HTMLInputElement>document.getElementsByClassName('check')).value;
+//   for(var i=0; inputElements[i]; ++i){
+//       if(inputElements[i].checked)
+//       arr.push(inputElements[i].name);
+//   }
+//   console.log(arr)
+//   return arr;
+// }
 
 
 }
